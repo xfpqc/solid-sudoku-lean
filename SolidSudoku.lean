@@ -416,5 +416,33 @@ axiom general_ssc_bounds (n : ℕ) (hn : 4 ≤ n) (x : ℝ) :
       (((k_m n m - 1 : ℝ) ^ (k_m n m - 1) / (k_m n m : ℝ) ^ (k_m n m - 2)) ^ (n ^ 2))) < x ∧
     x ≤ ((Nat.factorial (n ^ 2) : ℝ) * ∏ m ∈ Ico 1 (n - 1),
       (Nat.factorial (k_m n m) : ℝ) ^ ((n ^ 2 : ℝ) / (k_m n m : ℝ)))
+/-- Section 2.3: Explicit evaluation of the bounds for an Order 4 SSC (n=4).
+    The matrices A_1 and A_2 fall into Λ_16^9 and Λ_16^4 respectively. -/
+axiom order_4_bounds (x : ℝ) :
+    ((Nat.factorial 16 : ℝ) *
+    (((8 : ℝ) ^ 8 / (9 : ℝ) ^ 7) ^ (16 : ℝ)) *
+    (((3 : ℝ) ^ 3 / (4 : ℝ) ^ 2) ^ (16 : ℝ)) < x) ∧
+    (x ≤ (Nat.factorial 16 : ℝ) *
+    ((Nat.factorial 9 : ℝ) ^ ((16 : ℝ) / 9)) *
+    ((Nat.factorial 4 : ℝ) ^ ((16 : ℝ) / 4)))
 
+/-- Section 2.3: Numerical evaluation for n=4 configurations. -/
+axiom order_4_numerical_bounds (x : ℝ) :
+    (4.75 * (10 : ℝ) ^ 25 < x) ∧ (x ≤ 5.31 * (10 : ℝ) ^ 28)
+
+/-- Section 2.3: Explicit evaluation of the bounds for an Order 5 SSC (n=5).
+    The matrices A_1, A_2, and A_3 fall into Λ_25^16, Λ_25^9, and Λ_25^4. -/
+axiom order_5_bounds (x : ℝ) :
+    ((Nat.factorial 25 : ℝ) *
+    (((15 : ℝ) ^ 15 / (16 : ℝ) ^ 14) ^ (25 : ℝ)) *
+    (((8 : ℝ) ^ 8 / (9 : ℝ) ^ 7) ^ (25 : ℝ)) *
+    (((3 : ℝ) ^ 3 / (4 : ℝ) ^ 2) ^ (25 : ℝ)) < x) ∧
+    (x ≤ (Nat.factorial 25 : ℝ) *
+    ((Nat.factorial 16 : ℝ) ^ ((25 : ℝ) / 16)) *
+    ((Nat.factorial 9 : ℝ) ^ ((25 : ℝ) / 9)) *
+    ((Nat.factorial 4 : ℝ) ^ ((25 : ℝ) / 4)))
+
+/-- Section 2.3: Numerical evaluation for n=5 configurations. -/
+axiom order_5_numerical_bounds (x : ℝ) :
+    (1.23 * (10 : ℝ) ^ 64 < x) ∧ (x ≤ 1.19 * (10 : ℝ) ^ 70)
 end SSC_Bounds
